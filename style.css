@@ -26,8 +26,8 @@ a:hover, a:active {
 
 .calcframe {
     color: #DEF2F1;
-    width: 400px;
-    height: 450px;
+    width: 360px;
+    height: 440px;
     background: #17252A;
     display: flex;
     flex-wrap: wrap;
@@ -58,6 +58,23 @@ a:hover, a:active {
     text-align: center;
     border-radius: 4px;
     box-shadow: 3px 3px 3px #000000;
+}
+
+.calbutton:hover {
+    background: #215e5c;
+}
+
+.calbutton:active {
+    box-shadow: 1px 1px #000000;
+    transform: translateY(2px);
+}
+
+.opbutton {
+    background: #dc9c1d;
+}
+
+.opbutton:hover {
+    background: #b48017;
 }
 
 ul {
