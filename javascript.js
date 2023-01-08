@@ -26,3 +26,16 @@ function div(a,b) {
         return c;
     }
 }
+
+function operate(a, op, b) {
+    op(a,b);
+}
+let dispValue;
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        document.getElementById("calcdisplay").innerText = button.id;
+        let dispValue = button.id;
+    });
+});
