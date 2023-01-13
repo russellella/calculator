@@ -1,17 +1,14 @@
-// When +-*/ pressed, let op = button.id
-let op;
+let a = 0;
+document.getElementById("calcdisplay").innerText = a;
 
+let op;
 const opbuttons = document.querySelectorAll(".opbutton");
 opbuttons.forEach((button) => {
     button.addEventListener("click", () => {
         op = button.id;
+        b = a;
     });
 })
-
-// TESTING
-
-let y = 2;
-let c;
 
 // add/sub/mul/div Functions
 function add() {
@@ -21,7 +18,7 @@ function add() {
 }
 
 function sub() {
-    c = a - b;
+    c = b - a;
     document.getElementById("calcdisplay").innerText = c;
     return c;
 }
@@ -37,7 +34,7 @@ function div() {
         document.getElementById("calcdisplay").innerText = "Warning! Black hole imminent!";
         return "Warning! Black hole imminent!"
     } else {
-        c = a/b;
+        c = b/a;
         document.getElementById("calcdisplay").innerText = c;
         return c;
     }
@@ -63,14 +60,24 @@ function operate(op) {
 }
 
 // Equals runs operate function
-document.getElementById("equ").onclick = function() {operate()};
+document.getElementById("equ").onclick = function() {operate(op)};
 
 // Update display with button push - Update display works, but assigning button.id to a does not
 const numbuttons = document.querySelectorAll(".numbutton");
 numbuttons.forEach((button) => {
     button.addEventListener("click", () => {
-        document.getElementById("calcdisplay").innerText = button.id;
-        a = +button.id;
+        if (a == 0) {
+            document.getElementById("calcdisplay").innerText = button.id;
+            a = +button.id;
+        } else if (a > 0) {
+            b = a;
+            a = +button.id;
+            let c = `${b}${a}`
+            document.getElementById("calcdisplay").innerText = c;
+        } else {
+            document.getElementById("calcdisplay").innerText = "ERROR";
+        }
+        
     });
 })
 
