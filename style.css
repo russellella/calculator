@@ -48,7 +48,9 @@ a:hover, a:active {
     align-items: center;
 }
 
-.calbutton {
+.calbutton,
+.numbutton,
+.equbutton {
     background: #2B7A78;
     color: #DEF2F1;
     border: none;
@@ -60,11 +62,15 @@ a:hover, a:active {
     box-shadow: 3px 3px 3px #000000;
 }
 
-.calbutton:hover {
+.calbutton:hover,
+.numbutton:hover,
+.equbutton:hover {
     background: #215e5c;
 }
 
-.calbutton:active {
+.calbutton:active,
+.numbutton:active,
+.equbutton:active {
     box-shadow: 1px 1px #000000;
     transform: translateY(2px);
 }
