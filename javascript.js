@@ -1,23 +1,27 @@
+// Testing Variables
+let a = 3;
+let b = 2;
+
 // Operating Functions
-function add(a,b) {
+function add() {
     let c = a + b;
     document.getElementById("calcdisplay").innerText = c;
     console.log(c);
 }
 
-function sub(a,b) {
+function sub() {
     let c = a - b;
     document.getElementById("calcdisplay").innerText = c;
     return c;
 }
 
-function mul(a,b) {
+function mul() {
     let c = a * b;
     document.getElementById("calcdisplay").innerText = c;
     return c;
 }
 
-function div(a,b) {
+function div() {
     if (a == 0 || b == 0) {
         document.getElementById("calcdisplay").innerText = "Warning! Black hole imminent!";
         return "Warning! Black hole imminent!"
@@ -29,7 +33,8 @@ function div(a,b) {
 }
 
 
-// Update display with button push
+// Update display with button push - TEMP DISABLED FOR TESTING
+/*
 const numbuttons = document.querySelectorAll(".numbutton");
 numbuttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -38,8 +43,9 @@ numbuttons.forEach((button) => {
         console.log(a);
     });
 })
+*/
 
-// When +-*/ pressed, let op = button id
+// When +-*/ pressed, let op = button id - WORKS
 const calbuttons = document.querySelectorAll(".calbutton");
 calbuttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -48,30 +54,23 @@ calbuttons.forEach((button) => {
     });
 })
 
-
-let a = 2;
-let b = 3;
-
-
-function operate(a, op, b) {
+// Operate function
+function operate() {
     if (op = "add") {
-        add(a,b);
-        console.log("operate ran");
+        add();
+        console.log("+ operate ran");
     } else if (op = "sub") {
-        sub(a,b);
+        sub();
+        console.log("- operate ran");
     }   else if (op = "mul") {
-        mul(a,b);
+        mul();
+        console.log("* operate ran");
     } else if (op = "div") {
-        div(a,b);
-    }
+        div();
+        console.log("/ operate ran");
+    } else (
+        console.log("Uh oh! operate function malfunction")
+    )
 }
 
-
-// When = pressed, run operate function
-
 document.getElementById("equ").onclick = function() {operate()};
-
-
-
-// Test operate function:
-
