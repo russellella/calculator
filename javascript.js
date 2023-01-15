@@ -91,7 +91,12 @@ function operate(op) {
 }
 
 // Equals runs operate function
-document.getElementById("equ").onclick = function() {operate(op)};
+document.getElementById("equ").onclick = function() {
+    operate(op)
+    a = 0;
+    b = 0;
+    c = 0;
+    op = undefined;};
 
 // Clear Button
 document.getElementById("clear").onclick = function() {clear()};
