@@ -28,9 +28,17 @@ numbuttons.forEach((button) => {
 const opbuttons = document.querySelectorAll(".opbutton");
 opbuttons.forEach((button) => {
     button.addEventListener("click", () => {
-        x = a;
-        op = button.id;
-        a = 0;
+        if (op == undefined) {
+            x = a;
+            op = button.id;
+            a = 0;
+        } else {
+            operate(op);
+            x = a;
+            op = button.id;
+            a = 0;
+        }
+            
     });
 })
 
@@ -54,7 +62,7 @@ function mul() {
 }
 
 function div() {
-    if (a == 0 || b == 0) {
+    if (a == 0) {
         document.getElementById("calcdisplay").innerText = "The singularity is about to explode!";
     } else {
         b = x/a;
