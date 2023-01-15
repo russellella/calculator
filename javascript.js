@@ -140,7 +140,18 @@ async function boom(){
     // Remove Calculator
     removeChildNodes(calcframeholder);
     calcframeholder.appendChild(img);
-    
+    const button = document.createElement('button')
+    button.innerText = "Rebuild Calculator";
+    button.classList.add("rebuildbutton");
+    button.addEventListener('click', refreshPage)
+    rebuild.appendChild(button);
+
 }
 
+
+// Rebuild Button
+
+const refreshPage = () => {
+    location.reload();
+  }
         
