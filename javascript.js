@@ -1,42 +1,65 @@
 let a = 0;
+let c;
+let op;
+let x;
 document.getElementById("calcdisplay").innerText = a;
 
-let op;
+// Update display with button push
+const numbuttons = document.querySelectorAll(".numbutton");
+numbuttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (a == 0) {
+            document.getElementById("calcdisplay").innerText = button.id;
+            a = +button.id;
+        } else if (a > 0) {
+            b = a;
+            a = +button.id;
+            c = +`${b}${a}`
+            document.getElementById("calcdisplay").innerText = c;
+            a = c;
+        } else {
+            document.getElementById("calcdisplay").innerText = "ERROR";
+        }
+        
+    });
+})
+
+// Store Operation Value
 const opbuttons = document.querySelectorAll(".opbutton");
 opbuttons.forEach((button) => {
     button.addEventListener("click", () => {
+        x = a;
         op = button.id;
-        b = a;
+        a = 0;
     });
 })
 
 // add/sub/mul/div Functions
 function add() {
-    c = a + b;
-    document.getElementById("calcdisplay").innerText = c;
-    console.log(c);
+    b = x + a;
+    document.getElementById("calcdisplay").innerText = b;
+    a = b;
 }
 
 function sub() {
-    c = b - a;
-    document.getElementById("calcdisplay").innerText = c;
-    return c;
+    b = x - a;
+    document.getElementById("calcdisplay").innerText = b;
+    a = b;
 }
 
 function mul() {
-    c = a * b;
-    document.getElementById("calcdisplay").innerText = c;
-    return c;
+    b = x * a;
+    document.getElementById("calcdisplay").innerText = b;
+    a = b;
 }
 
 function div() {
     if (a == 0 || b == 0) {
-        document.getElementById("calcdisplay").innerText = "Warning! Black hole imminent!";
-        return "Warning! Black hole imminent!"
+        document.getElementById("calcdisplay").innerText = "The singularity is about to explode!";
     } else {
-        c = b/a;
-        document.getElementById("calcdisplay").innerText = c;
-        return c;
+        b = x/a;
+        document.getElementById("calcdisplay").innerText = b;
+        a = b;
     }
 }
 
@@ -62,23 +85,13 @@ function operate(op) {
 // Equals runs operate function
 document.getElementById("equ").onclick = function() {operate(op)};
 
-// Update display with button push - Update display works, but assigning button.id to a does not
-const numbuttons = document.querySelectorAll(".numbutton");
-numbuttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        if (a == 0) {
-            document.getElementById("calcdisplay").innerText = button.id;
-            a = +button.id;
-        } else if (a > 0) {
-            b = a;
-            a = +button.id;
-            let c = `${b}${a}`
-            document.getElementById("calcdisplay").innerText = c;
-        } else {
-            document.getElementById("calcdisplay").innerText = "ERROR";
-        }
-        
-    });
-})
+// Clear Button
+document.getElementById("clear").onclick = function() {clear()};
 
-
+function clear() {
+    a = 0;
+    b = 0;
+    c = 0;
+    op = undefined;
+    document.getElementById("calcdisplay").innerText = a;
+}
