@@ -11,13 +11,13 @@ numbuttons.forEach((button) => {
         if (a == 0) {
             document.getElementById("calcdisplay").innerText = button.id;
             a = +button.id;
-        } else if (a > 0) {
+        } else if (a != 0) {
             b = a;
             a = +button.id;
             c = +`${b}${a}`
             document.getElementById("calcdisplay").innerText = c;
             a = c;
-        } else {
+        }   else {
             document.getElementById("calcdisplay").innerText = "ERROR";
         }
         
@@ -63,11 +63,8 @@ function mul() {
 
 function div() {
     if (a == 0) {
-        document.getElementById("calcdisplay").innerText = "The singularity is about to explode!";
-        a = 0;
-        b = 0;
-        c = 0;
-        op = undefined;
+        boom();
+        
     } else {
         b = x/a;
         document.getElementById("calcdisplay").innerText = b;
@@ -109,3 +106,41 @@ function clear() {
     op = undefined;
     document.getElementById("calcdisplay").innerText = a;
 }
+
+// Experimental Section
+
+// Image Setup
+const img = document.createElement("img");
+img.src = "./images/boom-calc.png"
+const calcframeholder = document.getElementById("calcframeholder");
+
+// Remove Child Nodes
+function removeChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+    console.log("removeChildNodes ran");
+}
+
+// Delay Setup
+function delay(milliseconds) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+
+async function boom(){
+    document.getElementById("calcdisplay").innerText = "Calculator will self destruct in 3...";
+    await delay(1000);
+    document.getElementById("calcdisplay").innerText = "Calculator will self destruct in 2...";
+    await delay(1000);
+    document.getElementById("calcdisplay").innerText = "Calculator will self destruct in 1...";
+    await delay(1000);
+    // Remove Calculator
+    removeChildNodes(calcframeholder);
+    calcframeholder.appendChild(img);
+    
+}
+
+        
