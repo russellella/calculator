@@ -64,6 +64,10 @@ function mul() {
 function div() {
     if (a == 0) {
         document.getElementById("calcdisplay").innerText = "The singularity is about to explode!";
+        a = 0;
+        b = 0;
+        c = 0;
+        op = undefined;
     } else {
         b = x/a;
         document.getElementById("calcdisplay").innerText = b;
@@ -93,9 +97,6 @@ function operate(op) {
 // Equals runs operate function
 document.getElementById("equ").onclick = function() {
     operate(op)
-    a = 0;
-    b = 0;
-    c = 0;
     op = undefined;};
 
 // Clear Button
