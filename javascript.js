@@ -1,4 +1,5 @@
 let a = 0;
+let b;
 let c;
 let op;
 let x;
@@ -10,10 +11,6 @@ numbuttons.forEach((button) => {
         if (a == 0) {
             document.getElementById("calcdisplay").innerText = button.id;
             a = +button.id;
-        } else if ((a != 0) && (op == undefined)) {
-            document.getElementById("calcdisplay").innerText = button.id;
-            a = +button.id;
-            b = 0;
         } else if (a != 0) {
             b = a;
             a = +button.id;
