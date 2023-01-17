@@ -11,6 +11,10 @@ numbuttons.forEach((button) => {
         if (a == 0) {
             document.getElementById("calcdisplay").innerText = button.id;
             a = +button.id;
+        } else if ((a != 0) && (op == undefined)) {
+            document.getElementById("calcdisplay").innerText = button.id;
+            a = +button.id;
+            b = 0;
         } else if (a != 0) {
             b = a;
             a = +button.id;
@@ -94,7 +98,8 @@ function operate(op) {
 // Equals runs operate function
 document.getElementById("equ").onclick = function() {
     operate(op)
-    op = undefined;};
+    op = undefined;
+};
 
 // Clear Button
 document.getElementById("clear").onclick = function() {clear()};
