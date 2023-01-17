@@ -3,6 +3,7 @@ let b;
 let c;
 let op;
 let x;
+let y;
 document.getElementById("calcdisplay").innerText = a;
 
 const numbuttons = document.querySelectorAll(".numbutton");
@@ -11,6 +12,12 @@ numbuttons.forEach((button) => {
         if (a == 0) {
             document.getElementById("calcdisplay").innerText = button.id;
             a = +button.id;
+        } else if ((a !=0) && (op == undefined) && (y == true)) {
+            document.getElementById("calcdisplay").innerText = button.id;
+            a = +button.id;
+            b = 0;
+            x = 0;
+            y = false;
         } else if (a != 0) {
             b = a;
             a = +button.id;
@@ -85,6 +92,7 @@ function operate(op) {
 document.getElementById("equ").onclick = function() {
     operate(op)
     op = undefined;
+    y = true;
 };
 
 document.getElementById("clear").onclick = function() {clear()};
