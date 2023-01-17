@@ -102,6 +102,7 @@ function clear() {
     b = 0;
     c = 0;
     op = undefined;
+    y = undefined;
     document.getElementById("calcdisplay").innerText = a;
 }
 
