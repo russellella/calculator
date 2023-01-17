@@ -5,7 +5,7 @@ body {
     background-image:linear-gradient(#3AAFA9, #2B7a78);
     display: flex;
     flex-direction: column;
-    font-size: 24px;
+    font-size: 14px;
 }
 
 a:link, a:visited {
@@ -47,6 +47,7 @@ a:hover, a:active {
     display: flex;
     justify-content: right;
     align-items: center;
+    font-size: 24px;
 }
 
 .calbutton,

@@ -4,7 +4,6 @@ let op;
 let x;
 document.getElementById("calcdisplay").innerText = a;
 
-// Update display with button push
 const numbuttons = document.querySelectorAll(".numbutton");
 numbuttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -23,12 +22,8 @@ numbuttons.forEach((button) => {
             a = c;
         }   else {
             document.getElementById("calcdisplay").innerText = "ERROR";
-        }
-        
-    });
-})
+        }});})
 
-// Store Operation Value
 const opbuttons = document.querySelectorAll(".opbutton");
 opbuttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -41,12 +36,8 @@ opbuttons.forEach((button) => {
             x = a;
             op = button.id;
             a = 0;
-        }
-            
-    });
-})
+        }});})
 
-// add/sub/mul/div Functions
 function add() {
     b = x + a;
     document.getElementById("calcdisplay").innerText = b;
@@ -76,7 +67,6 @@ function div() {
     }
 }
 
-// Operate function
 function operate(op) {
     if (op == "add") {
         add();
@@ -95,13 +85,11 @@ function operate(op) {
     )
 }
 
-// Equals runs operate function
 document.getElementById("equ").onclick = function() {
     operate(op)
     op = undefined;
 };
 
-// Clear Button
 document.getElementById("clear").onclick = function() {clear()};
 
 function clear() {
@@ -112,14 +100,10 @@ function clear() {
     document.getElementById("calcdisplay").innerText = a;
 }
 
-// Experimental Section
-
-// Image Setup
 const img = document.createElement("img");
 img.src = "./images/boom-calc.png"
 const calcframeholder = document.getElementById("calcframeholder");
 
-// Remove Child Nodes
 function removeChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
@@ -127,13 +111,11 @@ function removeChildNodes(parent) {
     console.log("removeChildNodes ran");
 }
 
-// Delay Setup
 function delay(milliseconds) {
     return new Promise(resolve => {
         setTimeout(resolve, milliseconds);
     });
 }
-
 
 async function boom(){
     document.getElementById("calcdisplay").innerText = "Calculator will self destruct in 3...";
@@ -150,11 +132,7 @@ async function boom(){
     button.classList.add("rebuildbutton");
     button.addEventListener('click', refreshPage)
     rebuild.appendChild(button);
-
 }
-
-
-// Rebuild Button
 
 const refreshPage = () => {
     location.reload();
